@@ -100,12 +100,14 @@ A big thanks goes to the following for their invaluable contributions in no part
 - **[Saad](https://github.com/saadelasfur)** for help with build system
 - **[Vince](https://github.com/vinceboberly)** for help with kernel upstream
 - **Nhat Vo** for Google Telemetry app removal
-- **Code Malaya** for SPen Air Actions
+- **[Code Malaya](https://github.com/jomiejoshiro)** for SPen Air Actions
 - **[Renox](https://github.com/renoxtv)** for overlay patches and testing
 - **[Ksawlii](https://github.com/Ksawlii)** for FOD animation patch
 - **[nalz0](https://github.com/nalz0)** for Multi-User support
+- **[EndaDwagon](https://github.com/EndaDwagon)** for the big majority of the ExtremeROM Wiki
 - **[Oskar](https://github.com/osrott61-gh), [Mesazane](https://github.com/Mesazane)** for Building alot before we started using actions
 - **@april865** (TG) for ExtremeROM Nexus banner
+- And everyone else who aided in testing, wiki, translations etc!
 
 Original UN1CA credits:
 - **[ShaDisNX255](https://github.com/ShaDisNX255)** for his help, time and for his [NcX ROM](https://github.com/ShaDisNX255/NcX_Stock) which inspired this project
