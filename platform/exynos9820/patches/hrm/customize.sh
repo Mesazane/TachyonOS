@@ -5,7 +5,6 @@ if [[ "$TARGET_CODENAME" != "beyond0lte" && "$TARGET_CODENAME" != "beyondx" ]]; 
     system/etc/permissions/android.hardware.sensor.heartrate.xml
     system/etc/permissions/com.sec.feature.spo2.xml
     system/lib64/libhr.so
-    system/priv-app/HealthServicePAR
     "
     for blob in $BLOBS_LIST
     do
