@@ -1,6 +1,6 @@
 # [
 EXTREMEKRNL_REPO="https://github.com/ExtremeXT/android_kernel_samsung_s5e9925"
-KERNELSU_MANAGER_APK="https://github.com/KernelSU-Next/KernelSU-Next/releases/download/v1.0.8/KernelSU_Next_v1.0.8_12701-release.apk"
+KERNELSU_MANAGER_APK="https://github.com/KernelSU-Next/KernelSU-Next/releases/download/v1.0.9/KernelSU_Next_v1.0.9_12797-release.apk"
 
 BUILD_KERNEL()
 {
@@ -112,9 +112,9 @@ UPDATE_MODULES()
     mv -v "$KERNEL_TMP_DIR-$TARGET_PLATFORM/build/out/$TARGET_CODENAME/modules_dlkm/fingerprint_sysfs.ko" "$WORK_DIR/vendor_dlkm/lib/modules"
     mv -v "$KERNEL_TMP_DIR-$TARGET_PLATFORM/build/out/$TARGET_CODENAME/modules_dlkm/input_booster_lkm.ko" "$WORK_DIR/vendor_dlkm/lib/modules"
     mv -v "$KERNEL_TMP_DIR-$TARGET_PLATFORM/build/out/$TARGET_CODENAME/modules_dlkm/sec_debug_coredump.ko" "$WORK_DIR/vendor_dlkm/lib/modules"
-    if [[ "$TARGET_CODENAME" == "r0s" || "$TARGET_CODENAME" == "g0s" ]]; then
+    if [[ "$TARGET_CODENAME" == "r0s" ]]; then
          mv -v "$KERNEL_TMP_DIR-$TARGET_PLATFORM/build/out/$TARGET_CODENAME/modules_dlkm/wlan.ko" "$WORK_DIR/vendor_dlkm/lib/modules"
-    elif [[ "$TARGET_CODENAME" == "b0s" ]]; then
+    elif [[ "$TARGET_CODENAME" == "b0s"  || "$TARGET_CODENAME" == "g0s" ]]; then
         mv -v "$KERNEL_TMP_DIR-$TARGET_PLATFORM/build/out/$TARGET_CODENAME/modules_dlkm/dhd.ko" "$WORK_DIR/vendor_dlkm/lib/modules"
     fi
 }

@@ -87,11 +87,11 @@ case "$1" in
     "prebuilts/samsung/p3sxxx")
         FIRMWARE="SM-G998B/AUT/352731458300849"
         ;;
+    "prebuilts/samsung/pa3qxxx")
+        FIRMWARE="SM-S938B/EUX/356597450035295"
+        ;;
     "prebuilts/samsung/pa3qzcx")
         FIRMWARE="SM-S9380/CHC/355534491000674"
-        ;;
-    "prebuilts/samsung/r0qxxx")
-        FIRMWARE="SM-S901E/INS/350999641234561"
         ;;
     "prebuilts/samsung/r12sxxx")
         FIRMWARE="SM-S721B/EUX/351273090276500"
@@ -117,8 +117,8 @@ export SOURCE_FIRMWARE="$FIRMWARE"
 export TARGET_FIRMWARE="$FIRMWARE"
 export SOURCE_EXTRA_FIRMWARES=""
 export TARGET_EXTRA_FIRMWARES=""
-"$SRC_DIR/scripts/download_fw.sh"
-"$SRC_DIR/scripts/extract_fw.sh"
+"$SRC_DIR/scripts/download_fw.sh" --force
+"$SRC_DIR/scripts/extract_fw.sh" --force
 
 for i in $BLOBS; do
     if [[ "$i" == *[0-9] ]]; then

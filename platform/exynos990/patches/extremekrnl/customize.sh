@@ -1,6 +1,6 @@
 # [
 EXTREMEKRNL_REPO="https://github.com/ExtremeXT/990_upstream_v2/"
-KERNELSU_MANAGER_APK="https://github.com/KernelSU-Next/KernelSU-Next/releases/download/v1.0.7/KernelSU_Next_v1.0.7_12602-release.apk"
+KERNELSU_MANAGER_APK="https://github.com/KernelSU-Next/KernelSU-Next/releases/download/v1.0.9/KernelSU_Next_v1.0.9_12797-release.apk"
 
 BUILD_KERNEL()
 {
