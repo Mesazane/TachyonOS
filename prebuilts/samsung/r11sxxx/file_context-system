@@ -1,5 +1,6 @@
 /system u:object_r:system_file:s0
 /system/apex u:object_r:system_file:s0
+/system/apex/com\.android\.btservices\.apex u:object_r:system_file:s0
 /system/apex/com\.android\.i18n\.apex u:object_r:system_file:s0
 /system/apex/com\.android\.runtime\.apex u:object_r:system_file:s0
 /system/apex/com\.google\.android\.tzdata6\.apex u:object_r:system_file:s0

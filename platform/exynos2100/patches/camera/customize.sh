@@ -48,3 +48,5 @@ for blob in $BLOBS_LIST
 do
     ADD_TO_WORK_DIR "p3sxxx" "system" "$blob" 0 0 644 "u:object_r:system_lib_file:s0"
 done
+
+ADD_TO_WORK_DIR "p3sxxx" "system" "system/priv-app/SingleTakeService/SingleTakeService.apk" 0 0 644 "u:object_r:system_file:s0"

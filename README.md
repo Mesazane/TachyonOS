@@ -19,7 +19,7 @@
 # What is ExtremeROM Nexus?
 ExtremeROM Nexus is a work-in-progress custom firmware for Samsung Galaxy devices. It's based on the latest and greatest iteration of Samsung's UX and it also includes additional features and tweaks to ensure the best possible experience out of the box.
 It is based on the UN1CA build system which allows automatic downloading/extraction of the firmware, applying the required patches and generating a flashable zip/tar package for the specified target device.
-ExtremeROM Nexus supports devices using the Exynos 9820, Exynos 990 and Exynos 2100 SoCs
+ExtremeROM Nexus supports devices using the Exynos 9820, Exynos 990, Exynos 2100 and Exynos 2200 SoCs
 
 Any form of contribution, suggestions, bug report or feature request for the project will be welcome.
 
@@ -107,7 +107,9 @@ A big thanks goes to the following for their invaluable contributions in no part
 - **[Ksawlii](https://github.com/Ksawlii)** for FOD animation patch
 - **[nalz0](https://github.com/nalz0)** for Multi-User support
 - **[EndaDwagon](https://github.com/EndaDwagon)** for the big majority of the ExtremeROM Wiki
-- **[Oskar](https://github.com/osrott61-gh), [Mesazane](https://github.com/Mesazane)** for Building alot before we started using actions
+- **[Oskar](https://github.com/osrott61-gh)** N20/S22 Odinpacks, Building alot before we started using actions, some parts of the Wiki
+- **[Mesazane](https://github.com/Mesazane)** for Building alot before we started using actions
+- **[Dupa](https://github.com/dupazlasu)** for Maintaining S22 Series (ROM + Kernel)
 - **[RayShocker](https://github.com/RayShocker)** for HRM fix
 - **@april865** (TG) for ExtremeROM Nexus banner
 - And everyone else who aided in testing, wiki, translations etc!

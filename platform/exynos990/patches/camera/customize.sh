@@ -94,3 +94,16 @@ for blob in $BLOBS_LIST
 do
     ADD_TO_WORK_DIR "p3sxxx" "system" "$blob" 0 0 644 "u:object_r:system_lib_file:s0"
 done
+
+# S21 SingleTake models
+DELETE_FROM_WORK_DIR "vendor" "etc/singletake"
+ADD_TO_WORK_DIR "p3sxxx" "vendor" "etc/singletake"
+
+BLOBS_LIST="
+system/priv-app/SingleTakeService/SingleTakeService.apk
+system/cameradata/singletake/service-feature.xml
+"
+for blob in $BLOBS_LIST
+do
+    ADD_TO_WORK_DIR "p3sxxx" "system" "$blob" 0 0 644 "u:object_r:system_file:s0"
+done

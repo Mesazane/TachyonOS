@@ -1,5 +1,6 @@
 system 0 0 755 capabilities=0x0
 system/apex 0 0 755 capabilities=0x0
+system/apex/com.android.btservices.apex 0 0 644 capabilities=0x0
 system/apex/com.android.i18n.apex 0 0 644 capabilities=0x0
 system/apex/com.android.runtime.apex 0 0 644 capabilities=0x0
 system/apex/com.google.android.tzdata6.apex 0 0 644 capabilities=0x0
