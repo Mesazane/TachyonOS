@@ -26,7 +26,7 @@ echo "Replacing gamebooster props with stock"
 SET_PROP "product" "ro.gfx.driver.0" "$(GET_PROP "$WORK_DIR/vendor/build.prop" "ro.gfx.driver.0")"
 SET_PROP "product" "ro.gfx.driver.1" "$(GET_PROP "$WORK_DIR/vendor/build.prop" "ro.gfx.driver.1")"
 
-if [[ "$SOURCE_PRODUCT_FIRST_API_LEVEL" -gt 33 ]]; then
+if [[ "$SOURCE_PRODUCT_FIRST_API_LEVEL" -gt 33 && "$TARGET_PRODUCT_FIRST_API_LEVEL" -lt 33 ]]; then
     echo "Downgrading VaultKeeper JNI"
     ADD_TO_WORK_DIR "r11sxxx" "system" "system/lib64/libvkjni.so" 0 0 644 "u:object_r:system_lib_file:s0"
     ADD_TO_WORK_DIR "r11sxxx" "system" "system/lib64/libvkmanager.so" 0 0 644 "u:object_r:system_lib_file:s0"
