@@ -29,10 +29,10 @@ TMP_DIR="$OUT_DIR/zip"
 ROM_STATUS="UNOFFICIAL"
 $ROM_IS_OFFICIAL && ROM_STATUS="OFFICIAL"
 
-FILE_NAME="ExtremeROM_${ROM_STATUS}_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}"
+FILE_NAME="TachyonOS_${ROM_STATUS}_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}"
 while [ -f "$OUT_DIR/$FILE_NAME" ]; do
     INCREMENTAL=$((INCREMENTAL + 1))
-    FILE_NAME="ExtremeROM_${ROM_VERSION}_$(date +%Y%m%d)-${INCREMENTAL}_${TARGET_CODENAME}.zip"
+    FILE_NAME="TachyonOS_${ROM_VERSION}_$(date +%Y%m%d)-${INCREMENTAL}_${TARGET_CODENAME}.zip"
 done
 
 trap 'rm -rf "$TMP_DIR"' EXIT INT
@@ -507,11 +507,11 @@ PRINT_HEADER()
     echo    'ui_print(" ");'
     echo    'ui_print("****************************************************");'
     echo -n 'ui_print("'
-    echo -n "Welcome to ExtremeROM $ROM_CODENAME $ROM_VERSION for $TARGET_NAME!"
+    echo -n "Welcome to TachyonOS $ROM_CODENAME $ROM_VERSION for $TARGET_NAME!"
     echo    '");'
-    echo    'ui_print("ExtremeROM developed by ExtremeXT @XDAforums");'
+    echo    'ui_print("TachyonOS developed by ExtremeXT @XDAforums");'
     echo    'ui_print("Initial UN1CA build system coded by salvo_giangri @XDAforums");'
-    echo    'ui_print("Special thanks to all ExtremeROM Maintainers, Contribuitors and Testers");'
+    echo    'ui_print("Special thanks to all TachyonOS Maintainers, Contribuitors and Testers");'
     echo    'ui_print("****************************************************");'
     echo -n 'ui_print("'
     echo -n "One UI version: $ONEUI_VERSION"
