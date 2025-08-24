@@ -15,12 +15,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+fifteen
 VERSION_MAJOR=2
 VERSION_MINOR=6
 VERSION_PATCH=1
+
 
 ROM_VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
 # Append current commit hash to version name
 ROM_VERSION+="-$(git rev-parse --short HEAD)"
 
-ROM_CODENAME="Nexus"
+ROM_CODENAME="Agnes"

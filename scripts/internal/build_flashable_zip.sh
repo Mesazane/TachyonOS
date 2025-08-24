@@ -26,11 +26,27 @@ TARGET_FINGERPRINT="${TARGET_FINGERPRINT//$(GET_PROP "$FW_DIR/$TARGET_FIRMWARE_P
 
 TMP_DIR="$OUT_DIR/zip"
 
-FILE_NAME="ExtremeROM_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}"
+
+ZIP_FILE_SUFFIX="-sign.zip"
+$DEBUG && ! $ROM_IS_OFFICIAL && ZIP_FILE_SUFFIX=".zip"
+
+FILE_NAME="TachyonOS_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}${ZIP_FILE_SUFFIX}"
 while [ -f "$OUT_DIR/$FILE_NAME" ]; do
     INCREMENTAL=$((INCREMENTAL + 1))
-    FILE_NAME="ExtremeROM_${ROM_VERSION}_$(date +%Y%m%d)-${INCREMENTAL}_${TARGET_CODENAME}.zip"
+    FILE_NAME="TachyonOS_${ROM_VERSION}_$(date +%Y%m%d)-${INCREMENTAL}_${TARGET_CODENAME}${ZIP_FILE_SUFFIX}"
 done
+
+PRIVATE_KEY_PATH="$SRC_DIR/security/"
+PUBLIC_KEY_PATH="$SRC_DIR/security/"
+if $ROM_IS_OFFICIAL; then
+    PRIVATE_KEY_PATH+="extremerom"
+    PUBLIC_KEY_PATH+="extremerom"
+else
+    PRIVATE_KEY_PATH+="aosp"
+    PUBLIC_KEY_PATH+="aosp"
+fi
+PRIVATE_KEY_PATH+="_platform.pk8"
+PUBLIC_KEY_PATH+="_platform.x509.pem"
 
 trap 'rm -rf "$TMP_DIR"' EXIT INT
 
@@ -549,11 +565,11 @@ PRINT_HEADER()
     echo    'ui_print(" ");'
     echo    'ui_print("****************************************************");'
     echo -n 'ui_print("'
-    echo -n "Welcome to ExtremeROM $ROM_CODENAME $ROM_VERSION for $TARGET_NAME!"
+    echo -n "Welcome to TachyonOS $ROM_CODENAME $ROM_VERSION for $TARGET_NAME!"
     echo    '");'
-    echo    'ui_print("ExtremeROM developed by ExtremeXT @XDAforums");'
+    echo    'ui_print("TachyonOS developed by ExtremeXT @XDAforums");'
     echo    'ui_print("Initial UN1CA build system coded by salvo_giangri @XDAforums");'
-    echo    'ui_print("Special thanks to all ExtremeROM Maintainers, Contribuitors and Testers");'
+    echo    'ui_print("Special thanks to all TachyonOS Maintainers, Contribuitors and Testers");'
     echo    'ui_print("****************************************************");'
     echo -n 'ui_print("'
     echo -n "One UI version: $ONEUI_VERSION"
@@ -681,8 +697,15 @@ META_INF="./META-INF"
 EVAL "7z a -tzip -mx=9 -mmt=$(nproc --all) \"$TMP_DIR/rom.zip\" @\"compressed.txt\""
 EVAL "7z a -tzip -mx=0 -mmt=$(nproc --all) \"$TMP_DIR/rom.zip\" @\"stored.txt\" \"$META_INF\""
 
-# 3. Final move/rename
-mv -f "$TMP_DIR/rom.zip" "$OUT_DIR/$FILE_NAME.zip"
+
+if ! $DEBUG; then
+    LOG "- Signing zip"
+    EVAL "signapk -w \"$PUBLIC_KEY_PATH\" \"$PRIVATE_KEY_PATH\" \"$TMP_DIR/rom.zip\" \"$OUT_DIR/$FILE_NAME\"" || exit 1
+    rm -f "$TMP_DIR/rom.zip"
+else
+    mv -f "$TMP_DIR/rom.zip" "$OUT_DIR/$FILE_NAME"
+fi
+
 
 popd > /dev/null
 
