@@ -15,9 +15,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+fifteen
 VERSION_MAJOR=1
 VERSION_MINOR=0
-VERSION_PATCH=2
+VERSION_PATCH=3
+
 
 ROM_VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
 # Append current commit hash to version name

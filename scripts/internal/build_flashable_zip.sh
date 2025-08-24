@@ -697,6 +697,7 @@ META_INF="./META-INF"
 EVAL "7z a -tzip -mx=9 -mmt=$(nproc --all) \"$TMP_DIR/rom.zip\" @\"compressed.txt\""
 EVAL "7z a -tzip -mx=0 -mmt=$(nproc --all) \"$TMP_DIR/rom.zip\" @\"stored.txt\" \"$META_INF\""
 
+
 if ! $DEBUG; then
     LOG "- Signing zip"
     EVAL "signapk -w \"$PUBLIC_KEY_PATH\" \"$PRIVATE_KEY_PATH\" \"$TMP_DIR/rom.zip\" \"$OUT_DIR/$FILE_NAME\"" || exit 1
@@ -704,6 +705,7 @@ if ! $DEBUG; then
 else
     mv -f "$TMP_DIR/rom.zip" "$OUT_DIR/$FILE_NAME"
 fi
+
 
 popd > /dev/null
 
