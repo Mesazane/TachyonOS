@@ -1,6 +1,6 @@
-From a9e70e530b4033d20757e8501df21bb08edf42f0 Mon Sep 17 00:00:00 2001
+From f3cabce2e31d97f107ce3fa0b254a3767a851800 Mon Sep 17 00:00:00 2001
 From: ExtremeXT <75576145+ExtremeXT@users.noreply.github.com>
-Date: Thu, 31 Jul 2025 22:48:29 +0300
+Date: Fri, 12 Sep 2025 15:35:50 +0300
 Subject: [PATCH] Fix Color Format for OMX
 
 * In OneUI 7 Samsung Switched to a separate APK for motion photo instead of native blobs (libamex)
@@ -21,24 +21,25 @@ Relevant logs:
 07-31 20:13:47.394 14985 19498 E Sum@CBMFGraphUnitFactory: [[MAKER]com.samsung.android.sum.core.filter.EncoderFilter@84959581] error:
 ```
 
+Change-Id: Ifc974c5548ed43b74311371efa786ee12e4b0c17
 Signed-off-by: ExtremeXT <75576145+ExtremeXT@users.noreply.github.com>
 ---
  smali/com/samsung/android/sum/core/filter/EncoderFilter.smali | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/smali/com/samsung/android/sum/core/filter/EncoderFilter.smali b/smali/com/samsung/android/sum/core/filter/EncoderFilter.smali
-index d28633f..dc46749 100644
+index cb136bf..b927ff6 100644
 --- a/smali/com/samsung/android/sum/core/filter/EncoderFilter.smali
 +++ b/smali/com/samsung/android/sum/core/filter/EncoderFilter.smali
-@@ -1677,7 +1677,7 @@
-     invoke-virtual {v3, v5, v4}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
+@@ -1785,7 +1785,7 @@
+     invoke-virtual {v2, v5, v3}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
  
-     :cond_14
--    const v4, 0x7f420888
-+    const v4, 0x7f000789
+     :cond_15
+-    const v3, 0x7f420888
++    const v3, 0x7f000789
  
-     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
  
 -- 
-2.45.2
+2.51.0
 
