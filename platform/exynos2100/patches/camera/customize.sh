@@ -2,7 +2,7 @@ LOG_STEP_IN "- Replacing camera blobs"
 BLOBS_LIST="
 system/lib64/libae_bracket_hdr.arcsoft.so
 system/lib64/libarcsoft_dualcam_portraitlighting.so
-system/lib64/libdualcam_refocus_gallery_50.so
+system/lib64/libdualcam_refocus_gallery_48.so
 system/lib64/libdualcam_refocus_gallery_54.so
 system/lib64/libDualCamBokehCapture.camera.samsung.so
 system/lib64/libenn_wrapper_system.so
