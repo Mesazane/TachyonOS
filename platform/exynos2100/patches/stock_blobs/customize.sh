@@ -28,8 +28,8 @@ ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "product" "priv-app/HotwordEnrollmentXGoogleE
 LOG_STEP_OUT
 
 LOG_STEP_IN "- Adding 32-Bit WFD blobs from S21 (p3sxxx)"
-ADD_TO_WORK_DIR "p3sxxx" "system" "system/bin/remotedisplay" 0 2000 755 "u:object_r:remotedisplay_exec:s0"
-ADD_TO_WORK_DIR "p3sxxx" "system" "system/lib" 0 0 644 "u:object_r:system_lib_file:s0"
+ADD_TO_WORK_DIR "r9sxxx" "system" "system/bin/remotedisplay" 0 2000 755 "u:object_r:remotedisplay_exec:s0"
+ADD_TO_WORK_DIR "r9sxxx" "system" "system/lib" 0 0 644 "u:object_r:system_lib_file:s0"
 LOG_STEP_OUT
 
 if [[ "$TARGET_CODENAME" = "p3s" ]]; then
