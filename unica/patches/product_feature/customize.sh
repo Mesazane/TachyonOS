@@ -363,6 +363,14 @@ DECODE_APK "system" "system/framework/semwifi-service.jar"
 #     if $TARGET_AUDIO_SUPPORT_ACH_RINGTONE; then
 #         LOG_STEP_IN "- Applying ACH ringtone patches"
 #         APPLY_PATCH "system" "system/framework/framework.jar" "$SRC_DIR/unica/patches/product_feature/audio/framework.jar/0001-Enable-ACH-ringtone-support.patch"
+#FOLDER_LIST="
+#system/media/audio/ringtones
+#"
+#for folder in $FOLDER_LIST
+#do
+#    DELETE_FROM_WORK_DIR "system" "$folder"
+#    ADD_TO_WORK_DIR "q7qzcx" "system" "$folder"
+#done
 #         LOG_STEP_OUT
 #     fi
 # fi
