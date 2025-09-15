@@ -19,6 +19,7 @@ system/lib/libstagefright_hdcp.so 0 0 644 capabilities=0x0
 system/lib/libtsmux.so 0 0 644 capabilities=0x0
 system/lib/vendor.samsung_slsi.hardware.ExynosHWCServiceTW@1.0.so 0 0 644 capabilities=0x0
 system/lib/vendor.samsung.hardware.security.hdcp.wifidisplay-V2-ndk.so 0 0 644 capabilities=0x0
+system/lib/vendor.samsung_slsi.hardware.graphics.extension.composer3-V4-ndk.so 0 0 644 capabilities=0x0
 system/lib/wfd_log.so 0 0 644 capabilities=0x0
 system/lib64 0 0 755 capabilities=0x0
 system/lib64/libeden_wrapper_system.so 0 0 644 capabilities=0x0

@@ -21,6 +21,7 @@
 /system/lib/vendor\.samsung_slsi\.hardware\.ExynosHWCServiceTW@1\.0\.so u:object_r:system_lib_file:s0
 /system/lib/vendor\.samsung\.hardware\.security\.hdcp\.wifidisplay-V2-ndk\.so u:object_r:system_lib_file:s0
 /system/lib/wfd_log\.so u:object_r:system_lib_file:s0
+/system/lib/vendor\.samsung_slsi\.hardware\.graphics\.extension\.composer3-V4-ndk\.so u:object_r:system_lib_file:s0
 /system/lib64 u:object_r:system_lib_file:s0
 /system/lib64/libeden_wrapper_system\.so u:object_r:system_lib_file:s0
 /system/lib64/libhigh_dynamic_range\.arcsoft\.so u:object_r:system_lib_file:s0
@@ -34,7 +35,6 @@
 /system/lib64/libSwIsp_wrapper_v1\.camera\.samsung\.so u:object_r:system_lib_file:s0
 /system/lib64/libmidas_DNNInterface\.camera\.samsung\.so u:object_r:system_lib_file:s0
 /system/lib64/vendor\.samsung\.hardware\.snap-V3-ndk\.so u:object_r:system_lib_file:s0
-/system/lib64/vendor\.samsung_slsi\.hardware\.graphics\.extension\.composer3-V4-ndk\.so u:object_r:system_lib_file:s0
 /system/priv-app u:object_r:system_lib_file:s0
 /system/priv-app/PhotoRemasterService u:object_r:system_file:s0
 /system/priv-app/PhotoRemasterService/PhotoRemasterService\.apk u:object_r:system_file:s0
