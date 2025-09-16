@@ -1,18 +1,19 @@
-From 7a38e0538f973d691581c1c0c765566dc2d1d850 Mon Sep 17 00:00:00 2001
-From: Ocin4ever <85343782+Ocin4ever@users.noreply.github.com>
-Date: Fri, 18 Jul 2025 17:26:18 +0300
+From be5078fc3e471648200bd52f711f513bbdd5a300 Mon Sep 17 00:00:00 2001
+From: ExtremeXT <75576145+ExtremeXT@users.noreply.github.com>
+Date: Tue, 16 Sep 2025 22:25:04 +0300
 Subject: [PATCH] Add EAD APK Support
 
+Change-Id: I6efc622e5574fa61433534657a7b477f6ad96ab3
 Signed-off-by: ExtremeXT <75576145+ExtremeXT@users.noreply.github.com>
 ---
  .../appops/AppOpsControllerImpl.smali         | 40 ++++++++++++++-----
  1 file changed, 31 insertions(+), 9 deletions(-)
 
 diff --git a/smali/com/android/systemui/appops/AppOpsControllerImpl.smali b/smali/com/android/systemui/appops/AppOpsControllerImpl.smali
-index 6f4557f6..21c2d143 100644
+index 7536efe4..9abbb675 100644
 --- a/smali/com/android/systemui/appops/AppOpsControllerImpl.smali
 +++ b/smali/com/android/systemui/appops/AppOpsControllerImpl.smali
-@@ -751,7 +751,7 @@
+@@ -749,7 +749,7 @@
  .method public final isUserVisible(Ljava/lang/String;Ljava/lang/String;)Z
      .locals 4
  
@@ -21,7 +22,7 @@ index 6f4557f6..21c2d143 100644
  
      invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
  
-@@ -759,6 +759,8 @@
+@@ -757,6 +757,8 @@
  
      const/4 v2, 0x0
  
@@ -30,7 +31,7 @@ index 6f4557f6..21c2d143 100644
      if-eqz v1, :cond_0
  
      iget-object v1, p0, Lcom/android/systemui/appops/AppOpsControllerImpl;->mContext:Landroid/content/Context;
-@@ -767,24 +769,44 @@
+@@ -765,24 +767,44 @@
  
      move-result-object v1
  
@@ -74,36 +75,38 @@ index 6f4557f6..21c2d143 100644
  
      move-result p0
  
--    if-nez p0, :cond_1
-+    if-nez p0, :cond_3
+-    if-nez p0, :cond_2
++    if-nez p0, :cond_4
  
      const-string p0, "SLocationService"
  
-@@ -792,7 +814,7 @@
+@@ -790,7 +812,7 @@
  
      move-result p0
  
--    if-nez p0, :cond_1
-+    if-nez p0, :cond_3
+-    if-nez p0, :cond_2
++    if-nez p0, :cond_4
  
      const-string p0, "Biometrics_FaceService"
  
-@@ -800,12 +822,12 @@
+@@ -798,14 +820,14 @@
  
      move-result p0
  
--    if-eqz p0, :cond_2
-+    if-eqz p0, :cond_4
+-    if-eqz p0, :cond_1
++    if-eqz p0, :cond_3
+ 
+     goto :goto_0
  
 -    :cond_1
 +    :cond_3
-     const/4 v2, 0x1
+     return v2
  
 -    :cond_2
 +    :cond_4
-     return v2
- .end method
+     :goto_0
+     const/4 p0, 0x1
  
 -- 
-2.45.2
+2.51.0
 
