@@ -1,14 +1,15 @@
-From cea76fee26884d9313704a8d059467e5b7a8613e Mon Sep 17 00:00:00 2001
+From 913246e91e24db1fc15830550e9f7eb59390c8f7 Mon Sep 17 00:00:00 2001
 From: ExtremeXT <75576145+ExtremeXT@users.noreply.github.com>
 Date: Mon, 15 Sep 2025 14:54:13 +0300
 Subject: [PATCH] Enable dynamic resolution control
 
+Change-Id: I33598681e603780eb99507b1926ed922636d9462
 ---
  .../android/settings/DisplaySettings$3.smali  |   24 +
  .../android/settings/DisplaySettings$4.smali  |  203 +-
  .../Utils$$ExternalSyntheticLambda4.smali     |   56 +-
  .../Utils$$ExternalSyntheticLambda5.smali     |   38 +
- .../Utils$$ExternalSyntheticOutline0.smali    |   32 +-
+ .../Utils$$ExternalSyntheticOutline0.smali    |   18 +
  .../com/android/settings/Utils.smali          |  151 +-
  .../display/ScreenResolutionFragment.smali    |   77 +-
  .../display/ScreenZoomSettingsReceiver.smali  |   71 +-
@@ -18,7 +19,7 @@ Subject: [PATCH] Enable dynamic resolution control
  ...ScreenResolutionPreferenceController.smali |   31 +-
  ...reenResolutionSingleChoiceController.smali |   43 +-
  .../eternal/provider/items/DisplayItem.smali  | 1669 +++++++++--------
- 14 files changed, 2325 insertions(+), 1494 deletions(-)
+ 14 files changed, 2325 insertions(+), 1480 deletions(-)
  create mode 100644 smali_classes2/com/android/settings/Utils$$ExternalSyntheticLambda5.smali
 
 diff --git a/smali_classes2/com/android/settings/DisplaySettings$3.smali b/smali_classes2/com/android/settings/DisplaySettings$3.smali
@@ -787,7 +788,7 @@ index 00000000..cf3f6305
 +    return p0
 +.end method
 diff --git a/smali_classes2/com/android/settings/Utils$$ExternalSyntheticOutline0.smali b/smali_classes2/com/android/settings/Utils$$ExternalSyntheticOutline0.smali
-index 7d3b5e35..f40a0191 100644
+index 7d3b5e35..2e756275 100644
 --- a/smali_classes2/com/android/settings/Utils$$ExternalSyntheticOutline0.smali
 +++ b/smali_classes2/com/android/settings/Utils$$ExternalSyntheticOutline0.smali
 @@ -4,6 +4,24 @@
@@ -815,24 +816,6 @@ index 7d3b5e35..f40a0191 100644
  .method public static m(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
      .locals 1
  
-@@ -35,17 +53,3 @@
- 
-     return-void
- .end method
--
--.method public static m(Ljava/lang/StringBuilder;ZLjava/lang/String;ZLjava/lang/String;)V
--    .locals 0
--
--    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
--
--    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
--
--    invoke-virtual {p0, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
--
--    invoke-virtual {p0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
--
--    return-void
--.end method
 diff --git a/smali_classes2/com/android/settings/Utils.smali b/smali_classes2/com/android/settings/Utils.smali
 index 41d1e99d..339da7c0 100644
 --- a/smali_classes2/com/android/settings/Utils.smali
