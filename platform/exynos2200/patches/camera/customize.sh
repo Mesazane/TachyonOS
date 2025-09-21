@@ -38,6 +38,7 @@ system/lib64/libdualcam_portraitlighting_gallery_360.so
 system/lib64/libHREnhancementAPI.camera.samsung.so
 system/lib64/libdualcam_refocus_image.so
 system/lib64/libarcsoft_superresolution_bokeh.so
+system/lib64/libImageTagger.camera.samsung.so
 "
 if [[ "$TARGET_CODENAME" == "r0s" || "$TARGET_CODENAME" == "g0s" ]]; then
     BLOBS_LIST+="
