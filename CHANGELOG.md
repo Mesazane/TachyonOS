@@ -1,5 +1,12 @@
 # ExtremeROM Nexus changelog
 
+# 2.6.2
+- Fixed FOD animation for SideFP
+- Fixed camera filters
+- Updated Exy2100/Exy2200 bootloader versions
+- Updated KernelSU
+- Updated base firmware to S24 FE August Security Patch (S721BXXS7BYH1)
+
 # 2.6.1
 - Updated build system (thx @Ksawlii)
 - Added ASCII art in the installer (thx @bkurt)
