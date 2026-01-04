@@ -3,8 +3,6 @@
 </h1>
 <p align="center">
   <a href="https://github.com/ExtremeXT/ExtremeROM/blob/fifteen/LICENSE"><img loading="lazy" src="https://img.shields.io/github/license/ExtremeXT/ExtremeROM?style=for-the-badge&logo=github"/></a>
-  <a href="https://github.com/ExtremeXT/ExtremeROM/commits/fifteen"><img loading="lazy" src="https://img.shields.io/github/last-commit/ExtremeXT/ExtremeROM/fifteen?style=for-the-badge"/></a>
-  <a href="https://github.com/ExtremeXT/ExtremeROM/stargazers"><img loading="lazy" src="https://img.shields.io/github/stars/ExtremeXT/ExtremeROM?style=for-the-badge"/></a>
   <a href="https://github.com/ExtremeXT/ExtremeROM/graphs/contributors"><img loading="lazy" src="https://img.shields.io/github/contributors/ExtremeXT/ExtremeROM?style=for-the-badge"/></a>
 </p>
 <p align="center">ExtremeROM Merkur is a work-in-progress custom firmware for Samsung Galaxy devices.</p>
@@ -13,7 +11,7 @@
   <a href="https://t.me/extremerom">💬 Telegram (Nexus)</a>
   <a href="https://t.me/WaltersStuff">💬 Telegram (Merkur)</a>
   <a href="https://github.com/ExtremeXT/ExtremeROM/wiki">📖 Wiki</a>
-  <a href="https://github.com/ExtremeXT/ExtremeROM/blob/fifteen/CHANGELOG.md">📝 Changelog</a>
+  <a href="https://github.com/WalterGrayzz/ExtremeROM_Merkur/blob/sixteen/CHANGELOG.md">📝 Changelog</a>
   <a href="https://github.com/ExtremeXT/ExtremeROM/blob/fifteen/MAINTAINERS">🧑‍💻 Maintainers</a>
 </p>
 
