@@ -112,7 +112,6 @@ A big thanks goes to the following for their invaluable contributions in no part
 - **[RayShocker](https://github.com/RayShocker)** for HRM fix
 - **[Szucsy92](https://github.com/Szucsy92)** for SingleTake fix
 - **[Kurt](https://github.com/kurtbahartr)** for ASCII art and some minor fixes
-- **@april865** (TG) for ExtremeROM Nexus banner
 - And everyone else who aided in testing, wiki, translations etc!
 
 Original UN1CA credits:
