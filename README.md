@@ -7,56 +7,39 @@
   <a href="https://github.com/ExtremeXT/ExtremeROM/stargazers"><img loading="lazy" src="https://img.shields.io/github/stars/ExtremeXT/ExtremeROM?style=for-the-badge"/></a>
   <a href="https://github.com/ExtremeXT/ExtremeROM/graphs/contributors"><img loading="lazy" src="https://img.shields.io/github/contributors/ExtremeXT/ExtremeROM?style=for-the-badge"/></a>
 </p>
-<p align="center">ExtremeROM Nexus is a work-in-progress custom firmware for Samsung Galaxy devices.</p>
+<p align="center">ExtremeROM Merkur is a work-in-progress custom firmware for Samsung Galaxy devices.</p>
 
 <p align="center">
-  <a href="https://t.me/extremerom">💬 Telegram</a>
+  <a href="https://t.me/extremerom">💬 Telegram (Nexus)</a>
+  <a href="https://t.me/WaltersStuff">💬 Telegram (Merkur)</a>
   <a href="https://github.com/ExtremeXT/ExtremeROM/wiki">📖 Wiki</a>
   <a href="https://github.com/ExtremeXT/ExtremeROM/blob/fifteen/CHANGELOG.md">📝 Changelog</a>
   <a href="https://github.com/ExtremeXT/ExtremeROM/blob/fifteen/MAINTAINERS">🧑‍💻 Maintainers</a>
 </p>
 
-# What is ExtremeROM Nexus?
-ExtremeROM Nexus is a work-in-progress custom firmware for Samsung Galaxy devices.
+# What is ExtremeROM Merkur?
+ExtremeROM Merkur is a work-in-progress custom firmware for Samsung Galaxy Note20 Ultra.
 
 It's based on the latest and greatest iteration of Samsung's UX and it also includes additional features and tweaks to ensure the best possible experience out of the box.
 
 It is based on the UN1CA build system which allows automatic downloading/extraction of the firmware, applying the required patches and generating a flashable zip package for the specified target device.
 
-ExtremeROM Nexus supports devices using the Exynos 9820, Exynos 990, Exynos 2100 and Exynos 2200 SoCs
-
 Any form of contribution, suggestions, bug report or feature request for the project will be welcome.
 
-# EOL Notice
-As of 04-01-2026, ExtremeROM is officially considered end of life until further notice.
-
-I reserve all rights to this project and any future continuations or spin-offs.
-
-No updates or support will be provided, but the repository will remain archived publicly.
-
-This notice does NOT change the GPLv3 license of this project.
-
-The unfinished/WIP sixteen branch has also been published for any developer that wishes to utilize code from it, while faithfully adhering to the GPLv3 licensing etiquette.
-
-I wish to thank everyone for the support given during the lifetime of this project. Thanks to all maintainers and users for everything.
-
-This branch is unfinished and will NOT build.
-
 # Features
-- Based on the latest stable OneUI 7 Galaxy S25 FE firmware
-- All software features from S25 FE
+- Based on the latest stable OneUI 8.0 Galaxy S22 Ultra firmware
+- All software features from S22 Ultra
 - S25 Ultra CSC, ringtones and more
 - Moderately Debloated
 - Heavily DeKnoxed
 - Full SELinux Support
 - Full Galaxy AI support
-- Completely upstreamed kernels for all officially supported devices
-- Now Brief Support
+- Completely upstreamed kernel
 - Adaptive color tone support
 - Super HDR support
 - Adaptive Brightness support
 - Full CSC support
-- Adaptive Refresh Rate support (for some models)
+- Adaptive Refresh Rate support
 - Multi-User support
 - AppLock support
 - EroFS partitions
@@ -70,9 +53,6 @@ This branch is unfinished and will NOT build.
 - Extra CSC features (Call recording, Network speed in status bar, 5GHz Hotspot)
 - Countless other small optimizations
 - More that I can't remember right now and will have to be added in the future
-
-# Bugs
-See the <a href="https://github.com/ExtremeXT/ExtremeROM/issues">⚠ Issues</a> tab
 
 # Licensing
 This project is licensed under the terms of the [GNU General Public License v3.0](LICENSE). External dependencies might be distributed under a different license, such as:
@@ -128,7 +108,7 @@ A big thanks goes to the following for their invaluable contributions in no part
 - **[EndaDwagon](https://github.com/EndaDwagon)** for the big majority of the ExtremeROM Wiki
 - **[Oskar](https://github.com/osrott61-gh)** for Odinpacks, Building before we started using CI, Wiki
 - **[Mesazane](https://github.com/Mesazane)** for Building before we started using CI
-- **[Dupa](https://github.com/dupazlasu)** for Maintaining S22 Series (ROM + Kernel)
+- **[Dupa](https://github.com/dupazlasu)** for helping me in every way possible, without him this project would be a flop.
 - **[RayShocker](https://github.com/RayShocker)** for HRM fix
 - **[Szucsy92](https://github.com/Szucsy92)** for SingleTake fix
 - **[Kurt](https://github.com/kurtbahartr)** for ASCII art and some minor fixes
@@ -146,14 +126,5 @@ Original UN1CA credits:
 - *All the UN1CA project contributors and testers ❤️*
 
 # Kernel sources and device trees
-- 9820 Kernel Source Code (Maintainer: @ExtremeXT): https://github.com/ExtremeXT/M62-backport
-- 9820 Device Tree Code (Maintainer: @ExtremeXT): https://github.com/ExtremeXT/android_device_samsung_exynos9820
 - 990 Kernel Source Code (Maintainer: @ExtremeXT): https://github.com/ExtremeXT/990_upstream_v2
 - 990 Device Tree Code (Maintainer: @ExtremeXT): https://github.com/ExtremeXT/android_device_samsung_exynos9820
-- 2100 Kernel Source Code (Maintainer: @xfwdrev/@maximusXZ): https://github.com/xfwdrev/android_kernel_samsung_ex2100
-- 2100 Device Tree Code (Maintainer: @xfwdrev/@maximusXZ): https://github.com/xfwdrev/android_device_samsung_exynos2100
-- 2200 Kernel Source Code (Maintainer: @dupazlasu): https://github.com/ExtremeXT/android_kernel_samsung_s5e9925
-- 2200 Device Tree Code (Maintainer: @dupazlasu): https://github.com/dupazlasu/android_device_samsung_s5e9925
-
-# Stargazers over time
-[![Stargazers over time](https://starchart.cc/ExtremeXT/ExtremeROM.svg)](https://starchart.cc/ExtremeXT/ExtremeROM)
