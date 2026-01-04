@@ -1,5 +1,5 @@
 # [
-EXTREMEKRNL_REPO="https://github.com/ExtremeXT/990_upstream_v2/"
+EXTREMEKRNL_REPO="https://github.com/WalterGrayzz/990_upstream_v2"
 
 BUILD_KERNEL()
 {
