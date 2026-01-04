@@ -15,12 +15,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-VERSION_MAJOR=3
+VERSION_MAJOR=1
 VERSION_MINOR=0
-VERSION_PATCH=0-alpha1
+VERSION_PATCH=0
 
 ROM_VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
 # Append current commit hash to version name
 ROM_VERSION+="-$(git rev-parse --short HEAD)"
 
-ROM_CODENAME="Quant"
+ROM_CODENAME="Merkur"
