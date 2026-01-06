@@ -46,6 +46,7 @@ app/Maps
 app/YouTube
 overlay/GmsConfigOverlaySearchSelector.apk
 priv-app/SearchSelector
+priv-app/Messages
 "
 
 # PDP apps
