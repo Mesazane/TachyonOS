@@ -9,9 +9,3 @@ if [[ -d "$SRC_DIR/target/$TARGET_CODENAME/overlay" ]]; then
         "$SRC_DIR/target/$TARGET_CODENAME/overlay" \
         "$APKTOOL_DIR/product/overlay/framework-res__${SYSTEM_NAME}__auto_generated_rro_product.apk/res"
 fi
-
-# TODO: Add a proper check if we need to remove this
-DECODE_APK "product" "overlay/SystemUI__${SYSTEM_NAME}__auto_generated_rro_product.apk"
-sed -i -e "/config_enableRoundedCorner/d" "$APKTOOL_DIR/product/overlay/SystemUI__${SYSTEM_NAME}__auto_generated_rro_product.apk/res/values/bools.xml"
-rm "$APKTOOL_DIR/product/overlay/SystemUI__${SYSTEM_NAME}__auto_generated_rro_product.apk/res/values/public.xml"
-rm "$APKTOOL_DIR/product/overlay/SystemUI__${SYSTEM_NAME}__auto_generated_rro_product.apk/res/drawable/rounded.xml"
