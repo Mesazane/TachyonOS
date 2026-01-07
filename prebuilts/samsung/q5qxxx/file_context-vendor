@@ -1,0 +1,19 @@
+
+/vendor u:object_r:vendor_file:s0
+/vendor/bin u:object_r:vendor_file:s0
+/vendor/bin/hw u:object_r:vendor_file:s0
+/vendor/bin/hw/vendor\.samsung\.hardware\.uwb@1\.0-service u:object_r:hal_uwb_default_exec:s0
+/vendor/etc u:object_r:vendor_configs_file:s0
+/vendor/etc/init u:object_r:vendor_configs_file:s0
+/vendor/etc/init/init\.vendor\.uwb\.rc u:object_r:vendor_configs_file:s0
+/vendor/etc/init/vendor\.samsung\.hardware\.uwb@1\.0-service\.rc u:object_r:vendor_configs_file:s0
+/vendor/etc/libuwb-countrycode\.conf u:object_r:vendor_configs_file:s0
+/vendor/etc/libuwb-feature\.conf u:object_r:vendor_configs_file:s0
+/vendor/etc/libuwb-nxp\.conf u:object_r:vendor_configs_file:s0
+/vendor/etc/libuwb-uci\.conf u:object_r:vendor_configs_file:s0
+/vendor/firmware/uwb u:object_r:vendor_firmware_file:s0
+/vendor/firmware/uwb/libsr100t_dev_fw\.bin u:object_r:vendor_firmware_file:s0
+/vendor/firmware/uwb/libsr100t_prod_fw\.bin u:object_r:vendor_firmware_file:s0
+/vendor/lib64 u:object_r:vendor_file:s0
+/vendor/lib64/libmemunreachable\.so u:object_r:vendor_file:s0
+/vendor/lib64/uwb_uci\.hal\.so u:object_r:vendor_file:s0
