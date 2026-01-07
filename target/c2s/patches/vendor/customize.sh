@@ -1,23 +1,20 @@
-LOG_STEP_IN "- Updating UWB HAL"
-
-DELETE_FROM_WORK_DIR "vendor" "etc/init/nxp-uwb-service.rc"
+LOG_STEP_IN "- Removing UWB HAL from vendor"
 
 BLOBS_LIST="
 bin/hw/vendor.samsung.hardware.uwb@1.0-service
-etc/libuwb-countrycode.conf
-etc/libuwb-feature.conf
+etc/uwb_key
 etc/libuwb-nxp.conf
 etc/libuwb-uci.conf
+etc/permissions/samsung.hardware.uwb.xml
+etc/permissions/android.hardware.uwb.xml
 etc/init/init.vendor.uwb.rc
-etc/init/vendor.samsung.hardware.uwb@1.0-service.rc
-firmware/uwb
-lib64/uwb_uci.hal.so
-lib64/libmemunreachable.so
+etc/init/nxp-uwb-service.rc
+etc/vintf/manifest/uwb-service.xml
 "
 for blob in $BLOBS_LIST
 do
-    ADD_TO_WORK_DIR "q5qxxx" "vendor" "$blob"
+    DELETE_FROM_WORK_DIR "vendor" "$blob"
 done
 
-SET_PROP "vendor" "ro.vendor.uwb.feature.chipname" "sr100"
+sed -i -e "/sr100/d" -e "/UWB/d" "$WORK_DIR/vendor/etc/init/init.exynos990.rc"
 LOG_STEP_OUT
