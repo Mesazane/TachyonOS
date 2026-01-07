@@ -119,89 +119,6 @@ if [[ "$(GET_FP_SENSOR_TYPE "$TARGET_FP_SENSOR_CONFIG")" == "optical" ]]; then
     done
 fi
 
-if ! $SOURCE_HAS_QHD_DISPLAY; then
-    if $TARGET_HAS_QHD_DISPLAY; then
-        LOG_STEP_IN "- Applying multi resolution patches"
-
-        DECODE_APK "system" "system/framework/framework.jar"
-        DECODE_APK "system" "system/framework/gamemanager.jar"
-        DECODE_APK "system" "system/priv-app/SecSettings/SecSettings.apk"
-
-        ADD_TO_WORK_DIR "$MODPATH/resolution/system" "system" "."
-        ADD_TO_WORK_DIR "e2sxxx" "system" "media"
-        APPLY_PATCH "system" "system/framework/framework.jar" "$SRC_DIR/unica/patches/product_feature/resolution/framework.jar/0001-Enable-dynamic-resolution-control.patch"
-        APPLY_PATCH "system" "system/framework/gamemanager.jar" "$SRC_DIR/unica/patches/product_feature/resolution/gamemanager.jar/0001-Enable-dynamic-resolution-control.patch"
-        APPLY_PATCH "system" "system/priv-app/SecSettings/SecSettings.apk" "$SRC_DIR/unica/patches/product_feature/resolution/SecSettings.apk/0001-Enable-dynamic-resolution-control.patch"
-        SET_FLOATING_FEATURE_CONFIG "SEC_FLOATING_FEATURE_COMMON_CONFIG_DYN_RESOLUTION_CONTROL" "WQHD,FHD,HD"
-        LOG_STEP_OUT
-    fi
-fi
-
-if ! $SOURCE_HAS_HW_MDNIE; then
-    if $TARGET_HAS_HW_MDNIE; then
-        LOG_STEP_IN "- Applying HW mDNIe patches"
-
-        DECODE_APK "system" "system/framework/framework.jar"
-        DECODE_APK "system" "system/framework/services.jar"
-        DECODE_APK "system_ext" "priv-app/SystemUI/SystemUI.apk"
-
-        SET_FLOATING_FEATURE_CONFIG "SEC_FLOATING_FEATURE_LCD_SUPPORT_MDNIE_HW" "TRUE"
-        SET_FLOATING_FEATURE_CONFIG "SEC_FLOATING_FEATURE_COMMON_SUPPORT_COLOR_LENS" "TRUE"
-        APPLY_PATCH "system" "system/framework/framework.jar" "$SRC_DIR/unica/patches/product_feature/mdnie/hw/framework.jar/0001-Enable-HW-mDNIe.patch"
-        APPLY_PATCH "system" "system/framework/services.jar" "$SRC_DIR/unica/patches/product_feature/mdnie/hw/services.jar/0001-Enable-HW-mDNIe.patch"
-        APPLY_PATCH "system" "system/priv-app/SecSettings/SecSettings.apk" "$SRC_DIR/unica/patches/product_feature/mdnie/hw/SecSettings.apk/0001-Enable-EAD-Settings.patch"
-        APPLY_PATCH "system_ext" "priv-app/SystemUI/SystemUI.apk" "$SRC_DIR/unica/patches/product_feature/mdnie/hw/SystemUI.apk/0001-Add-EAD-APK-Support.patch"
-        ADD_TO_WORK_DIR "e2sxxx" "system" "system/etc/permissions/privapp-permissions-com.samsung.android.sead.xml" 0 0 644 "u:object_r:system_file:s0"
-        ADD_TO_WORK_DIR "e2sxxx" "system" "system/priv-app/EnvironmentAdaptiveDisplay"
-        LOG_STEP_OUT
-    fi
-fi
-
-if ! $SOURCE_MDNIE_SUPPORT_HDR_EFFECT; then
-    if $TARGET_MDNIE_SUPPORT_HDR_EFFECT; then
-        LOG_STEP_IN "- Applying mDNIe HDR effect patches"
-
-        DECODE_APK "system" "system/priv-app/SettingsProvider/SettingsProvider.apk"
-
-        SET_FLOATING_FEATURE_CONFIG "SEC_FLOATING_FEATURE_COMMON_SUPPORT_HDR_EFFECT" "TRUE"
-        SET_FLOATING_FEATURE_CONFIG "SEC_FLOATING_FEATURE_MMFW_SUPPORT_HW_HDR" "TRUE"
-        APPLY_PATCH "system" "system/priv-app/SecSettings/SecSettings.apk" "$SRC_DIR/unica/patches/product_feature/mdnie/hdr/SecSettings.apk/0001-Enable-HDR-Settings.patch"
-        APPLY_PATCH "system" "system/priv-app/SettingsProvider/SettingsProvider.apk" "$SRC_DIR/unica/patches/product_feature/mdnie/hdr/SettingsProvider.apk/0001-Enable-HDR-And-EAD-Settings.patch"
-        LOG_STEP_OUT
-    fi
-fi
-
-if [[ "$SOURCE_MDNIE_SUPPORTED_MODES" != "$TARGET_MDNIE_SUPPORTED_MODES" ]]; then
-    LOG_STEP_IN "- Applying mDNIe features patches"
-
-    DECODE_APK "system" "system/framework/services.jar"
-
-    SET_FLOATING_FEATURE_CONFIG "SEC_FLOATING_FEATURE_COMMON_CONFIG_MDNIE_MODE" "$TARGET_MDNIE_SUPPORTED_MODES"
-
-    FTP="
-    system/framework/services.jar/smali_classes2/com/samsung/android/hardware/display/SemMdnieManagerService.smali
-    "
-    for f in $FTP; do
-        sed -i "s/\"$SOURCE_MDNIE_SUPPORTED_MODES\"/\"$TARGET_MDNIE_SUPPORTED_MODES\"/g" "$APKTOOL_DIR/$f"
-    done
-    LOG_STEP_OUT
-fi
-
-DECODE_APK "system" "system/framework/framework.jar"
-
-if [[ "$TARGET_HFR_SEAMLESS_BRT" == "none" && "$TARGET_HFR_SEAMLESS_LUX" == "none" ]]; then
-     APPLY_PATCH "system" "system/framework/framework.jar" "$SRC_DIR/unica/patches/product_feature/hfr/framework.jar/0001-Remove-brightness-threshold-values.patch"
-else
-
-FTP="
-system/framework/framework.jar/smali_classes6/com/samsung/android/hardware/display/RefreshRateConfig.smali
-"
-for f in $FTP; do
-    sed -i "s/\"$SOURCE_HFR_SEAMLESS_BRT\"/\"$TARGET_HFR_SEAMLESS_BRT\"/g" "$APKTOOL_DIR/$f"
-    sed -i "s/\"$SOURCE_HFR_SEAMLESS_LUX\"/\"$TARGET_HFR_SEAMLESS_LUX\"/g" "$APKTOOL_DIR/$f"
-done
-fi
-
 if [[ "$SOURCE_HFR_MODE" != "$TARGET_HFR_MODE" ]]; then
     LOG_STEP_IN "- Applying HFR_MODE patches"
 
@@ -307,74 +224,10 @@ if [ ! -f "$FW_DIR/${MODEL}_${REGION}/vendor/etc/permissions/android.hardware.st
     LOG_STEP_OUT
 fi
 
-DECODE_APK "system" "system/priv-app/SecSettings/SecSettings.apk"
-DECODE_APK "system" "system/framework/semwifi-service.jar"
-
-if $SOURCE_SUPPORT_HOTSPOT_DUALAP; then
-    if ! $TARGET_SUPPORT_HOTSPOT_DUALAP; then
-        LOG_STEP_IN "- Applying Hotspot DualAP patches"
-        APPLY_PATCH "system" "system/framework/semwifi-service.jar" "$SRC_DIR/unica/patches/product_feature/wifi/semwifi-service.jar/0001-Disable-DualAP-support.patch"
-        APPLY_PATCH "system" "system/priv-app/SecSettings/SecSettings.apk" "$SRC_DIR/unica/patches/product_feature/wifi/SecSettings.apk/0001-Disable-DualAP-support.patch"
-        LOG_STEP_OUT
-    fi
-fi
-
-if $SOURCE_SUPPORT_HOTSPOT_WPA3; then
-    if ! $TARGET_SUPPORT_HOTSPOT_WPA3; then
-        LOG_STEP_IN "- Applying Hotspot WPA3 patches"
-        APPLY_PATCH "system" "system/framework/semwifi-service.jar" "$SRC_DIR/unica/patches/product_feature/wifi/semwifi-service.jar/0002-Disable-Hotspot-WPA3-support.patch"
-        LOG_STEP_OUT
-    fi
-fi
-
-if $SOURCE_SUPPORT_HOTSPOT_6GHZ; then
-    if ! $TARGET_SUPPORT_HOTSPOT_6GHZ; then
-        LOG_STEP_IN "- Applying Hotspot 6GHz patches"
-        APPLY_PATCH "system" "system/framework/semwifi-service.jar" "$SRC_DIR/unica/patches/product_feature/wifi/semwifi-service.jar/0003-Disable-Hotspot-6GHz-support.patch"
-        LOG_STEP_OUT
-    fi
-fi
-
-# if $SOURCE_SUPPORT_HOTSPOT_WIFI_6; then
-#     if ! $TARGET_SUPPORT_HOTSPOT_WIFI_6; then
-#         LOG_STEP_IN "- Applying Hotspot Wi-Fi 6 patches"
-#         APPLY_PATCH "system" "system/priv-app/SecSettings/SecSettings.apk" "$SRC_DIR/unica/patches/product_feature/wifi/SecSettings.apk/0002-Disable-Hotspot-Wi-Fi-6.patch"
-#         LOG_STEP_OUT
-#     fi
-# fi
-
 if $SOURCE_SUPPORT_HOTSPOT_ENHANCED_OPEN; then
     if ! $TARGET_SUPPORT_HOTSPOT_ENHANCED_OPEN; then
         LOG_STEP_IN "- Applying Hotspot Enhanced Open patches"
         APPLY_PATCH "system" "system/priv-app/SecSettings/SecSettings.apk" "$SRC_DIR/unica/patches/product_feature/wifi/SecSettings.apk/0003-Disable-Hotspot-Enhanced-Open.patch"
-        LOG_STEP_OUT
-    fi
-fi
-
-if ! $SOURCE_AUDIO_SUPPORT_ACH_RINGTONE; then
-    if $TARGET_AUDIO_SUPPORT_ACH_RINGTONE; then
-        LOG_STEP_IN "- Applying ACH ringtone patches"
-        APPLY_PATCH "system" "system/framework/framework.jar" "$SRC_DIR/unica/patches/product_feature/audio/framework.jar/0001-Enable-ACH-ringtone-support.patch"
-
-        LOG "- Extracting ACH ringtone assets"
-        DELETE_FROM_WORK_DIR "system" "system/media/audio/ringtones"
-        DELETE_FROM_WORK_DIR "system" "system/media/audio/notifications"
-        ADD_TO_WORK_DIR "q7qzcx" "system" "system/media/audio/ringtones"
-        ADD_TO_WORK_DIR "q7qzcx" "system" "system/media/audio/notifications"
-        SET_PROP "vendor" "ro.config.ringtone" "ACH_Galaxy_Bells.ogg"
-        SET_PROP "vendor" "ro.config.notification_sound" "ACH_Brightline.ogg"
-        SET_PROP "vendor" "ro.config.alarm_alert" "ACH_Morning_Xylophone.ogg"
-        SET_PROP "vendor" "ro.config.ringtone_2" "ACH_Atomic_Bell.ogg"
-        SET_PROP "vendor" "ro.config.notification_sound_2" "ACH_Three_Star.ogg"
-        LOG_STEP_OUT
-    fi
-fi
-
-if $SOURCE_AUDIO_SUPPORT_VIRTUAL_VIBRATION; then
-    if ! $TARGET_AUDIO_SUPPORT_VIRTUAL_VIBRATION; then
-        LOG_STEP_IN "Applying virtual vibration patches"
-        APPLY_PATCH "system" "system/priv-app/SecSettings/SecSettings.apk" "$SRC_DIR/unica/patches/product_feature/audio/SecSettings.apk/0001-Disable-Virtual-Vibration-support.patch"
-        APPLY_PATCH "system" "system/priv-app/SecSoundPicker/SecSoundPicker.apk" "$SRC_DIR/unica/patches/product_feature/audio/SecSoundPicker.apk/0001-Disable-Virtual-Vibration-support.patch"
         LOG_STEP_OUT
     fi
 fi
