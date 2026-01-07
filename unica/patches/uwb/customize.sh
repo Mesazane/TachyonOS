@@ -2,7 +2,7 @@ MODEL=$(echo -n "$TARGET_FIRMWARE" | cut -d "/" -f 1)
 REGION=$(echo -n "$TARGET_FIRMWARE" | cut -d "/" -f 2)
 
 if [ ! -d "$FW_DIR/${MODEL}_${REGION}/system/system/app/UwbRROverlayMccMncRegulation" ]; then
-    LOG_STEP_in "- Removing UWB blobs..."
+    LOG_STEP_IN "- Removing UWB blobs..."
     DELETE_FROM_WORK_DIR "system" "system/app/UwbTest"
     DELETE_FROM_WORK_DIR "system" "system/app/UwbRROverlayMccMncRegulation"
     DELETE_FROM_WORK_DIR "system" "system/etc/init/init.system.uwb.rc"
