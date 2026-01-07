@@ -1,4 +1,4 @@
 id=bootlogo
 name=BootLogo mods
-author=ExtremeXT
+author=ExtremeXT, Mesazane
 description=Replaces the Exynos boot logo file binary (up_param.bin) with a modified one.
