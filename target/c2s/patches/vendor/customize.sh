@@ -16,7 +16,7 @@ lib64/libmemunreachable.so
 "
 for blob in $BLOBS_LIST
 do
-    ADD_TO_WORK_DIR "p3sxxx" "vendor" "$blob"
+    ADD_TO_WORK_DIR "q5qxxx" "vendor" "$blob"
 done
 
 SET_PROP "vendor" "ro.vendor.uwb.feature.chipname" "sr100"
