@@ -1,0 +1,9 @@
+system 0 0 755 capabilities=0x0
+system/hidden 0 0 755 capabilities=0x0
+system/hidden/INTERNAL_SDCARD 0 0 755 capabilities=0x0
+system/hidden/INTERNAL_SDCARD/Music 0 0 755 capabilities=0x0
+system/hidden/INTERNAL_SDCARD/Music/Samsung 0 0 755 capabilities=0x0
+system/hidden/INTERNAL_SDCARD/Music/Samsung/Over_the_Horizon.m4a 0 0 644 capabilities=0x0
+system/media 0 0 755 capabilities=0x0
+system/media/audio/ui 0 0 755 capabilities=0x0
+system/media/audio/ui/Media_preview_Over_the_horizon.ogg 0 0 644 capabilities=0x0

@@ -1,0 +1,10 @@
+/system u:object_r:system_file:s0
+/system/hidden/INTERNAL_SDCARD u:object_r:system_file:s0
+/system/hidden/INTERNAL_SDCARD/Music u:object_r:system_file:s0
+/system/hidden/INTERNAL_SDCARD/Music/Samsung u:object_r:system_file:s0
+/system/hidden/INTERNAL_SDCARD/Music/Samsung/Over_the_Horizon\.m4a u:object_r:system_file:s0
+/system/media u:object_r:system_file:s0
+/system/media/audio u:object_r:system_file:s0
+/system/media/audio/ui u:object_r:system_file:s0
+/system/media/audio/ui/Media_preview_Over_the_horizon\.ogg u:object_r:system_file:s0
+
