@@ -27,19 +27,6 @@ ExtremeROM Nexus supports devices using the Exynos 9820, Exynos 990, Exynos 2100
 
 Any form of contribution, suggestions, bug report or feature request for the project will be welcome.
 
-# EOL Notice
-As of 04-01-2026, ExtremeROM is officially considered end of life until further notice.
-
-I reserve all rights to this project and any future continuations or spin-offs.
-
-No updates or support will be provided, but the repository will remain archived publicly.
-
-This notice does NOT change the GPLv3 license of this project.
-
-The unfinished/WIP sixteen branch has also been published for any developer that wishes to utilize code from it, while faithfully adhering to the GPLv3 licensing etiquette.
-
-I wish to thank everyone for the support given during the lifetime of this project. Thanks to all maintainers and users for everything.
-
 # Features
 - Based on the latest stable OneUI 7 Galaxy S24 FE firmware
 - All software features from S24 FE
