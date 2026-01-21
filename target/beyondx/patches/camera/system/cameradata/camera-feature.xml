@@ -153,7 +153,8 @@
 
     <local name="SUPPORT_RECORDING_MULTI_MIC_ZOOM_FOCUS" value="true"/>
 
-    <local name="DISPLAY_CUTOUT_ANIMATION_INFO" num-of-display-cutout="1" display-cutout-0-type="1" display-cutout-0-left="271" display-cutout-0-top="2" display-cutout-0-right="348" display-cutout-0-bottom="41" display-cutout-0-inner-left="275.2" display-cutout-0-inner-top="5.2" display-cutout-0-inner-right="343.8" display-cutout-0-inner-bottom="37.8"/>
+<local name="DISPLAY_CUTOUT_ANIMATION_INFO" num-of-display-cutout="1" display-cutout-0-type="1" display-cutout-0-left="246" display-cutout-0-top="2" display-cutout-0-right="342" display-cutout-0-bottom="41" display-cutout-0-inner-left="249.3" display-cutout-0-inner-top="5.2" display-cutout-0-inner-right="338.8" display-cutout-0-inner-bottom="37.8"/>
+
 
     <!-- Auto Framing -->
     <local name="SUPPORT_VIDEO_AUTO_FRAMING" value="true"/>
