@@ -1,0 +1,4 @@
+ro.product.device=beyond2lte
+ro.product.system.name=beyond2ltexx
+ro.build.flavor=beyond2ltexx-user
+ro.unica.camera=beyond2ltexx

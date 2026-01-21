@@ -1,4 +1,4 @@
-SYSTEM_NAME="$(GET_PROP "$WORK_DIR/system/system/build.prop" "ro.product.system.name")"
+SYSTEM_NAME="r12sxxx"
 
 if [[ -d "$SRC_DIR/target/$TARGET_CODENAME/overlay" ]]; then
     DECODE_APK "product" "overlay/framework-res__${SYSTEM_NAME}__auto_generated_rro_product.apk"

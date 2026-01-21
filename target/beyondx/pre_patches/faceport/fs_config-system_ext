@@ -1,0 +1,7 @@
+system_ext 0 0 755 capabilities=0x0
+system_ext/etc 0 0 755 capabilities=0x0
+system_ext/etc/selinux 0 0 755 capabilities=0x0
+system_ext/etc/selinux/system_ext_sepolicy.cil 0 0 644 capabilities=0x0
+system_ext/priv-app 0 0 755 capabilities=0x0
+system_ext/priv-app/SystemUI 0 0 755 capabilities=0x0
+system_ext/priv-app/SystemUI/SystemUI.apk 0 0 644 capabilities=0x0
