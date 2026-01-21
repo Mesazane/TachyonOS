@@ -8,7 +8,7 @@
 /dev/block/by-name/optics               /optics              ext4    ro,barrier=1                                                                           nofail,first_stage_mount
 /dev/block/by-name/cache                /cache               ext4    noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic   wait,check
 
-# /dev/block/by-name/userdata		/data 		     f2fs    noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678,whint_mode=fs-based,inlinecrypt  wait,check,quota,latemount,reservedsize=128M,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts,fsverity,fscompress
+#/dev/block/by-name/userdata		/data 		     f2fs    noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678,whint_mode=fs-based,inlinecrypt  wait,check,quota,latemount,reservedsize=128M,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts,fsverity,fscompress
 
 /dev/block/by-name/userdata		/data 		     f2fs    noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678,whint_mode=fs-based  wait,check,quota,latemount,reservedsize=128M,checkpoint=fs,fsverity,fscompress
 
@@ -22,8 +22,8 @@
 /devices/platform/10c00000.usb*              auto            vfat    default                                                                                voldmanaged=usb:auto
 
 # Samsung ODE
-# /dev/block/platform/13d60000.ufs/by-name/keydata	/keydata	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check,fileencryption=aes-256-xts:aes-256-cts,nofail
-# /dev/block/platform/13d60000.ufs/by-name/keyrefuge	/keyrefuge	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check,fileencryption=aes-256-xts:aes-256-cts,nofail
+#/dev/block/platform/13d60000.ufs/by-name/keydata	/keydata	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check,fileencryption=aes-256-xts:aes-256-cts,nofail
+#/dev/block/platform/13d60000.ufs/by-name/keyrefuge	/keyrefuge	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check,fileencryption=aes-256-xts:aes-256-cts,nofail
 
 /dev/block/platform/13d60000.ufs/by-name/keydata	/keydata	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check,nofail
 /dev/block/platform/13d60000.ufs/by-name/keyrefuge	/keyrefuge	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check,nofail
