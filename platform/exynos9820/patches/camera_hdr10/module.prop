@@ -1,0 +1,4 @@
+id=camera_hdr10
+name=Camera HDR10 enablement
+author=Creeeeger
+description=Enable HDR10 in camera-feature.xml for beyond0/1/2/x.
