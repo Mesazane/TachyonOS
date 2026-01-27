@@ -1,0 +1,135 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Creeeeger <104427569+Creeeeger@users.noreply.github.com>
+Date: Tue, 27 Jan 2026 16:00:00 +0100
+Subject: [PATCH] Fix filter menu seekbar
+
+--- a/smali_classes3/com/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar.smali
++++ b/smali_classes3/com/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar.smali
+@@ -427,22 +427,24 @@
+     .locals 2
+ 
+     iget v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->g:I
+-
+     iget v1, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->f:I
+ 
+     if-ne v0, v1, :cond_0
++    const/4 v0, 0x0
++    return v0
+ 
+-    const/4 p0, 0x0
+-
+-    return p0
+-
+-    :cond_0
++:cond_0
+     sub-int/2addr v0, v1
+ 
+-    iget p0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->i:I
++    iget v1, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->i:I
+ 
+-    div-int/2addr v0, p0
++    if-nez v1, :cond_div
+ 
++    const/4 v0, 0x1
++    return v0
++
++:cond_div
++    div-int/2addr v0, v1
+     return v0
+ .end method
+ 
+@@ -591,10 +593,58 @@
+ 
+     iput v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->i:I
+ 
++
++    iget v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->i:I
++    if-nez v0, :cond_i_ok
++
++    iget v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->g:I
++    iget v1, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->f:I
++    sub-int/2addr v0, v1                # v0 = range (g-f)
++
++    const/16 v1, 0x1e                  # 30
++    if-lt v0, v1, :cond_i_min1         # if range < 30 -> step=1
++
++    div-int/2addr v0, v1               # v0 = range/30
++    if-nez v0, :cond_i_set
++    const/4 v0, 0x1
++
++:cond_i_set
++    iput v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->i:I
++    goto :cond_i_ok
++
++:cond_i_min1
++    const/4 v0, 0x1
++    iput v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->i:I
++
++:cond_i_ok
++
++
+     iget p2, p2, LL1/k;->d:I
+ 
+     iput p2, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->j:I
+ 
++    # If min == max, this slider becomes "disabled" in the UI.
++    # Force a default range that yields 30 columns.
++
++    iget v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->f:I
++    iget v1, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->g:I
++    if-ne v0, v1, :cond_range_ok
++
++    const/4 v0, 0x0
++    iput v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->f:I
++
++    const/16 v0, 0x1e     # 30
++    iput v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->g:I
++
++    const/4 v0, 0x1
++    iput v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->i:I
++
++    # Optional: set default/progress inside the new range
++    const/4 v0, 0x0
++    iput v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->j:I
++
++:cond_range_ok
++
+     invoke-direct {p0}, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->getNumberColumns()I
+ 
+     move-result p2
+@@ -1523,9 +1573,11 @@
+ 
+     sub-int/2addr p1, v1
+ 
+-    iget v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->i:I
+-
+-    div-int/2addr p1, v0
++iget v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->i:I
++if-nez v0, :cond_div_i
++const/4 v0, 0x1
++:cond_div_i
++div-int/2addr p1, v0
+ 
+     invoke-direct {p0}, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->getNumberColumns()I
+ 
+@@ -1541,13 +1593,14 @@
+ 
+     array-length v0, v1
+ 
+-    mul-int/2addr p1, v0
+-
+-    invoke-direct {p0}, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->getNumberColumns()I
+-
+-    move-result v0
++mul-int/2addr p1, v0
+ 
+-    div-int/2addr p1, v0
++invoke-direct {p0}, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->getNumberColumns()I
++move-result v0
++if-nez v0, :cond_div_cols
++const/4 v0, 0x1
++:cond_div_cols
++div-int/2addr p1, v0
+ 
+     :cond_0
+     iget-object v0, p0, Lcom/sec/android/mimage/photoretouching/spe/view/customview/FixedSeekbarView$FixedSeekbar;->w:[Landroid/graphics/RectF;
