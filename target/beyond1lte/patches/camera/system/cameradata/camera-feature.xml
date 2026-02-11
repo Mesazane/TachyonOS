@@ -215,7 +215,7 @@
     <local name="SUPPORT_PRO_VIDEO_AUDIO_INPUT_CONTROL" value="true"/>
     <local name="SUPPORT_PRO_VIDEO_AUDIO_BLUETOOTH_MIX_MIC" value="true"/>
     <local name="SUPPORT_PRO_VIDEO_WIDE_LENS_60FPS" value="true"/>
-    
+    <local name="SUPPORT_BACK_TELE_PRO" value="true"/>
     <local name="SUPPORT_BACK_WIDE_PRO" value="true"/>
 
     <!-- single take features -->
