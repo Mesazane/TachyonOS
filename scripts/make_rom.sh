@@ -123,6 +123,12 @@ if $BUILD_ROM; then
     "$SRC_DIR/scripts/internal/create_work_dir.sh" || exit 1
     LOG_STEP_OUT
 
+    if [ -d "$SRC_DIR/target/$TARGET_CODENAME/pre_patches" ]; then
+        LOG_STEP_IN true "Applying pre patches"
+        "$SRC_DIR/scripts/internal/apply_modules.sh" "$SRC_DIR/target/$TARGET_CODENAME/pre_patches" || exit 1
+        LOG_STEP_OUT
+    fi
+
     if [ -d "$SRC_DIR/unica/patches" ]; then
         LOG_STEP_IN true "Applying ROM patches"
         "$SRC_DIR/scripts/internal/apply_modules.sh" "$SRC_DIR/unica/patches" || exit 1
