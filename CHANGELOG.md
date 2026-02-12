@@ -1,3 +1,12 @@
+# TachyonOS Changelog
+
+# 1.0.6
+- Fixed Face Recognition (thx @szucsy92 & @Creeeeger)
+- Removed ROM Signature Verification (thx @osrott61-gh)
+- Fixed HDR10+ 60FPS recording (thx @Creeeeger)
+- Fixed Gallery Filters (thx @Creeeeger & @szucsy92)
+- Replaced the ROM logo found in Software Information Settings to reflect the ROM name
+
 # ExtremeROM Nexus changelog
 
 # 2.6.2
