@@ -1,5 +1,8 @@
 # TachyonOS Changelog
 
+# 1.0.7
+- updated KernelSU
+
 # 1.0.6
 - Fixed Face Recognition (thx @szucsy92 & @Creeeeger)
 - Removed ROM Signature Verification (thx @osrott61-gh)
