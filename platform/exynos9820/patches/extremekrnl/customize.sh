@@ -1,5 +1,5 @@
 # [
-EXTREMEKRNL_REPO="https://github.com/ExtremeXT/M62-backport/"
+EXTREMEKRNL_REPO="https://github.com/Mesazane/9820_kernel/"
 
 BUILD_KERNEL()
 {
