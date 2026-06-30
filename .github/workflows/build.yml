@@ -61,6 +61,8 @@ jobs:
           ./scripts/build_dependencies.sh
 
       - name: Download source firmware
+        env:
+          PINNED_FW_VERSION: "S721BXXS7BYH1"
         run: |
           source ./buildenv.sh ${{ matrix.target }}
           ./scripts/download_fw.sh --force --ignore-target

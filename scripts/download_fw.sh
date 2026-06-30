@@ -173,7 +173,9 @@ for i in "${FIRMWARES[@]}"; do
         # Anan's samloader stores its logs in the current working directory, let's move into OUT_DIR just for this time
         (
         cd "$OUT_DIR"
-        samloader -m "$MODEL" -r "$CSC" -i "$IMEI" -s "$SERIAL_NO" download -O "$ODIN_DIR/${MODEL}_${CSC}" 1> /dev/null || exit 1
+        FW_VER_ARG=()
+        [ -n "${PINNED_FW_VERSION:-}" ] && FW_VER_ARG=("-v" "$PINNED_FW_VERSION")
+        samloader -m "$MODEL" -r "$CSC" -i "$IMEI" -s "$SERIAL_NO" download "${FW_VER_ARG[@]}" -O "$ODIN_DIR/${MODEL}_${CSC}" 1> /dev/null || exit 1
         )
 
         ZIP_FILE="$(find "$ODIN_DIR/${MODEL}_${CSC}" -name "*.zip" | sort -r | head -n 1)"
